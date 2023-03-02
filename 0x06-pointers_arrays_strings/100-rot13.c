@@ -1,23 +1,27 @@
 #include "main.h"
+#include <ctype.h>
+#include <string.h>
+#include <stdio.h>
 
 /**
- * rot13 - encodes letter using rot13
- *
- * @n: string
- * Return: string
- */
+ *  * rot13 - encodes letter using rot13
+ *   *
+ *    * @n: string
+ *     * Return: string
+ *      */
 
 char *rot13(char *n)
 {
+	int length = strlen(n);
 	int value, ascii_val, i;
 
-	for (i = 0; n[i] != '\0'; i++)
+	for (i = 0; i < length; i++)
 	{
 		ascii_val = n[i];
 
-		while ((ascii_val > 64 && ascii_val < 91) || (ascii_val > 96 && ascii_val < 123))
+		while (isalpha(n[i]))
 		{
-			if (ascii_val > 64 && ascii_val < 91)
+			if (isupper(ascii_val))
 			{
 				value = n[i] - 65;
 				n[i] = (value + 13) % 26 + 65;

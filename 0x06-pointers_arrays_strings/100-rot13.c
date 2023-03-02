@@ -1,38 +1,27 @@
 #include "main.h"
-#include <ctype.h>
-#include <string.h>
-#include <stdio.h>
 
 /**
- *  * rot13 - encodes letter using rot13
- *   *
- *    * @n: string
- *     * Return: string
- *      */
-
-char *rot13(char *n)
+ *  * rot13 - encodes a string in rot13
+ *   * @s: string to be encoded
+ *    * Return: the resulting strring
+ *     */
+char *rot13(char *s)
 {
-	int length = strlen(n);
-	int value, ascii_val, i;
+	int i, j;
 
-	for (i = 0; i < length; i++)
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		ascii_val = n[i];
-
-		while (isalpha(n[i]))
+		for (j = 0; a[j] != '\0'; j++)
 		{
-			if (isupper(ascii_val))
+			if (s[i] == a[j])
 			{
-				value = n[i] - 65;
-				n[i] = (value + 13) % 26 + 65;
+				s[i] = b[j];
+				break;
 			}
-			else
-			{
-				value = n[i] - 97;
-				n[i] = (value + 13) % 26 + 97;
-			}
-			break;
 		}
 	}
-	return (n);
+	return (s);
 }

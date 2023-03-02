@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * rot13 - encodes letter using rot13
@@ -16,7 +17,7 @@ char *rot13(char *n)
 	{
 		ascii_val = n[i];
 
-		while (ascii_val > 64 && ascii_val < 91 || ascii_val > 96 && ascii_val < 123)
+		while ((ascii_val > 64 && ascii_val < 91) || (ascii_val > 96 && ascii_val < 123))
 		{
 			if (ascii_val > 64 && ascii_val < 91)
 			{

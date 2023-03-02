@@ -18,21 +18,20 @@ char *rot13(char *n)
 	for (i = 0; i < length; i++)
 	{
 		ascii_val = n[i];
-		if (!isalpha(n[i]))
+		while (isalpha(n[i]))
 		{
-			continue;
+			if (isupper(ascii_val))
+			{
+				value = n[i] - 65;
+				n[i] = (value + 13) % 26 + 65;
+			}
+			else
+			{
+				value = n[i] - 97;
+				n[i] = (value + 13) % 26 + 97;
+			}
+			break;
 		}
-		else if (isupper(ascii_val))
-		{
-			value = n[i] - 65;
-			n[i] = (value + 13) % 26 + 65;
-		}
-		else
-		{
-			value = n[i] - 97;
-			n[i] = (value + 13) % 26 + 97;
-		}
-
 	}
 	return (n);
 }

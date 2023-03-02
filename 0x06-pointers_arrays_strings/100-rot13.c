@@ -18,6 +18,7 @@ char *rot13(char *n)
 	for (i = 0; i < length; i++)
 	{
 		ascii_val = n[i];
+
 		while (isalpha(n[i]))
 		{
 			if (isupper(ascii_val))

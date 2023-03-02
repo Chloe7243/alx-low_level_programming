@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * rot13 - encodes letter using rot13
@@ -10,10 +9,9 @@
 
 char *rot13(char *n)
 {
-	int length = strlen(n);
 	int value, ascii_val, i;
 
-	for (i = 0; i < length; i++)
+	for (i = 0; n[i] != '\0'; i++)
 	{
 		ascii_val = n[i];
 

@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include "holberton.h"
 
 /**
  * main - add args
@@ -19,7 +17,7 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
-		if (isdigit(*argv[i]) == 0)
+		if (atoi(argv[i]) == 0)
 		{
 			printf("Error\n");
 			return (1);

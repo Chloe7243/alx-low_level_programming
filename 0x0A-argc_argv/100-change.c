@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 {
 	int coins = 0;
 
-	if (argc != 2 || atoi(argv[1]) == 0)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
@@ -61,9 +61,13 @@ int getcoins(int change)
 	{
 		div = 2;
 	}
-	while (change > 1)
+	else
+	{
+		div = 1;
+	}
+	while (change > 0)
 	{
 		return (change / div + getcoins(change % div));
 	}
-	return (0);
+	return (change);
 }

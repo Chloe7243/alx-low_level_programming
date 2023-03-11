@@ -17,18 +17,17 @@ int main(int argc, char *argv[])
 {
 	int coins = 0;
 
-	if (argc != 2)
+	if (argc != 2 || atoi(argv[1]) == 0)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	if (atoi(argv[1]) < 0)
+
+	if (atoi(argv[1]) > 0)
 	{
-		printf("0\n");
-		return (0);
+		coins = getcoins(atoi(argv[1]));
 	}
 
-	coins = getcoins(atoi(argv[1]));
 	printf("%d\n", coins);
 
 	return (0);

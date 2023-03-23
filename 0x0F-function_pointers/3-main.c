@@ -5,17 +5,20 @@
 /**
  * main - check the code
  *
+ * @argc: ...
+ * @argv: ...
+ *
  * Return: Always 0.
  */
 
 int main(int argc, char *argv[])
 {
-	int val1, val2, result, i = 0;
+	int val1, val2, result;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return(0);
+		return (0);
 	}
 
 	val1 = atoi(argv[1]);

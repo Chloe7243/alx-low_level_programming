@@ -14,15 +14,28 @@
 int main(int argc, char *argv[])
 {
 	int val1, val2, result;
+	char op = *argv[2];
 
-	if (argc != 4 || !get_op_func(argv[2]))
+	if (argc != 4)
 	{
 		printf("Error\n");
-		return (0);
+		exit(98);
+	}
+
+	if (!get_op_func(argv[2]))
+	{
+		printf("Error\n");
+		exit(99);
 	}
 
 	val1 = atoi(argv[1]);
 	val2 = atoi(argv[3]);
+
+	if ((op == '/' || op == '%') && val2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
 	result = get_op_func(argv[2])(val1, val2);
 
@@ -30,5 +43,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
-

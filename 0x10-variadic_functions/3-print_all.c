@@ -14,11 +14,9 @@ void print_all(const char * const format, ...)
 {
 	va_list ap;
 	int i = 0, start = 0;
-
 	char *s;
 
 	va_start(ap, format);
-
 	while (format && format[i])
 	{
 		switch (format[i])
@@ -49,8 +47,6 @@ void print_all(const char * const format, ...)
 				printf("%s", s == NULL ? "(nil)" : s);
 				break;
 		}
-
-
 		i++;
 	}
 	putchar('\n');

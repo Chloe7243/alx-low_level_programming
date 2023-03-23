@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 	int val1, val2, result;
 
-	if (argc != 4)
+	if (argc != 4 || !get_op_func(argv[2]))
 	{
 		printf("Error\n");
 		return (0);

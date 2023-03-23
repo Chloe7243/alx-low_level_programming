@@ -5,7 +5,7 @@
 /**
  * print_numbers - sums all args
  *
- * @seperator: seperator
+ * @separator: separator
  * @n: ...
  *
  * Return: void
@@ -20,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		printf("%d", va_arg(ap, int));
-		printf("%c ", (i != (n - 1)) ? *separator : '\n');
+		printf("%c", (i != (n - 1)) ? *separator : '\n');
 	}
 	va_end(ap);
 }

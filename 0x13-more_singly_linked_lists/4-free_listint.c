@@ -2,11 +2,11 @@
 
 /**
  * free_listint - frees a linked list
- * @head: list_t list to be freed
+ * @head: listint_t list to be freed
  */
 void free_listint(listint_t *head)
 {
-	list_t *tmp;
+	listint_t *tmp;
 
 	while (head)
 	{

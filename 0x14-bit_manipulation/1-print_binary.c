@@ -18,16 +18,16 @@ void print_binary(unsigned long int n)
 		if ((n & max) != 0)
 		{
 			is_zero = 0;
-			putchar('1');
+			_putchar('1');
 		}
 		else
 		{
 			if (is_zero == 0)
-				putchar('0');
+				_putchar('0');
 		}
 		max >>= 1;
 	}
 
 	if (is_zero)
-		putchar('0');
+		_putchar('0');
 }

@@ -8,16 +8,15 @@
  */
 int main(void)
 {
-	int n;
+	unsigned int n;
 
-	n = get_endianness();
-	if (n != 0)
-	{
-		printf("Little Endian\n");
-	}
-	else
-	{
-		printf("Big Endian\n");
-	}
+	n = flip_bits(1024, 0);
+	printf("%u\n", n);
+	n = flip_bits(0, 0);
+	printf("%u\n", n);
+	n = flip_bits(1024, 3);
+	printf("%u\n", n);
+	n = flip_bits(1024, 1025);
+	printf("%u\n", n);
 	return (0);
 }

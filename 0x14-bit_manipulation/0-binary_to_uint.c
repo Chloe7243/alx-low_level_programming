@@ -9,21 +9,12 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, mul = 1, val;
-	long int i = strlen(b) - 1;
+	unsigned int sum = 0;
 
 	if (b == NULL)
 		return (0);
 
-	for (; i >= 0; i--)
-	{
-		if (b[i] != '0' && b[i] != '1')
-			return (0);
-
-		val = b[i] == '0' ? 0 : 1;
-		sum += mul * val;
-		mul *= 2;
-	}
+	sum = (int *)b | 0;
 
 	return (sum);
 }

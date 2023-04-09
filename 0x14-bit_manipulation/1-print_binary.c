@@ -10,7 +10,7 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int max = 1 << 63;
+	unsigned long int max = (unsigned long int)1 << 63;
 	int is_zero = 1;
 
 	while (max > 0)

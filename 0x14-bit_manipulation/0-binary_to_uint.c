@@ -12,7 +12,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, i = strlen(b) - 1;
 
-	if (!b)
+	if (!b || i > sizeof(unsigned int) * 8)
 		return (0);
 
 	while (*b != '\0')

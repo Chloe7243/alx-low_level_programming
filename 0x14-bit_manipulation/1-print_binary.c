@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 
 	for (i = 0; i < 64; i++)
 	{
-		if ((n & (unsigned long int 1 << i)) != 0)
+		if ((n & ((unsigned long int)1 << i)) != 0)
 		{
 			is_zero = 0;
 			_putchar('1');

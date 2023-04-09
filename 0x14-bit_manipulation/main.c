@@ -8,9 +8,17 @@
  */
 int main(void)
 {
-	unsigned int n;
-
-
+	print_binary(0);
+	printf("\n");
+	print_binary(1);
+	printf("\n");
+	print_binary(98);
+	printf("\n");
+	print_binary(1024);
+	printf("\n");
+	print_binary((1 << 10) + 1);
+	printf("\n");
+	/*
 	n = binary_to_uint("1");
 	printf("%u\n", n);
 	n = binary_to_uint("");
@@ -28,6 +36,6 @@ int main(void)
 	n = binary_to_uint("1i001");
 	printf("%u\n", n);
 	n = binary_to_uint("000001");
-	printf("%u\n", n);
+	printf("%u\n", n); */
 	return (0);
 }

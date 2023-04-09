@@ -10,12 +10,11 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int max = (unsigned long int)1 << 63;
-	int is_zero = 1;
+	int i,  is_zero = 1;
 
-	while (max > 0)
+	for (i = 0; i < 64; i++)
 	{
-		if ((n & max) != 0)
+		if ((n & (unsigned long int 1 << i)) != 0)
 		{
 			is_zero = 0;
 			_putchar('1');
@@ -25,7 +24,6 @@ void print_binary(unsigned long int n)
 			if (is_zero == 0)
 				_putchar('0');
 		}
-		max >>= 1;
 	}
 
 	if (is_zero)

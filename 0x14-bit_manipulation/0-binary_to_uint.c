@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 /**
@@ -10,41 +11,21 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, i = strlen(b) - 1;
+	unsigned int sum = 0, mul = 1, val;
+	long int i = strlen(b) - 1;
 
 	if (!b)
 		return (0);
 
-	while (*b != '\0')
+	for (; i >= 0; i--)
 	{
-		if (*b != '0' && *b != '1')
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
 
-		if (*b == '0')
-		{
-			i--;
-			b++;
-			continue;
-		}
-
-		sum += val(i);
-		i--;
-		b++;
-
+		val = b[i] == '0' ? 0 : 1;
+		sum += mul * val;
+		mul *= 2;
 	}
 
 	return (sum);
-}
-
-/**
- * val - exponential
- * @i: exponent
- * Return: int value.
- */
-
-unsigned int val(unsigned int i)
-{
-	if (i == 0)
-		return (1);
-	return (2 * val(--i));
 }

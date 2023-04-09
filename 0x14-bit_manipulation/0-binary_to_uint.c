@@ -14,7 +14,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int sum = 0, mul = 1, val;
 	long int i = strlen(b) - 1;
 
-	if (!b)
+	if (b == NULL)
 		return (0);
 
 	for (; i >= 0; i--)

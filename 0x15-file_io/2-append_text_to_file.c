@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * create_file - creates a file and fills it with text
+ * append_text_to_file - appends text to file
  * @filename: name of the file to create
  * @text_content: text to write in the file
  *
@@ -18,6 +18,9 @@ int append_text_to_file(const char *filename, char *text_content)
 	fildes = open(filename, O_WRONLY | O_APPEND);
 	if (fildes < 0)
 		return (-1);
+
+	while (text_content[size])
+		size++;
 
 	if (text_content)
 	{

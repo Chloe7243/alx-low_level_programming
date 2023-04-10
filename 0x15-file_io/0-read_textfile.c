@@ -1,6 +1,5 @@
 #include "main.h"
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -38,7 +37,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	w_val = fwrite(buf, sizeof(char), r_val, stdout);
 	if (w_val != r_val)
 		return (help_fnc(buf, fp));
-		
 	fclose(fp);
 	free(buf);
 
@@ -57,6 +55,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 int help_fnc(char *buffer, FILE *file_ptr)
 {
 	fclose(file_ptr);
-	free(buf);
+	free(buffer);
 	return (0);
 }

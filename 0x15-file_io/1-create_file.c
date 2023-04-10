@@ -1,40 +1,32 @@
 #include "main.h"
-#include <fcntl.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * read_textfile - reads a text file and prints it to the POSIX standard output
+ * create_file - creates a file and fills it with text
+ * @filename: name of the file to create
+ * @text_content: text to write in the file
  *
- * @filename: file name
- * @letters: number of letters
- * Return: int
+ * Return: 1 on success, -1 on failure
  */
 
 int create_file(const char *filename, char *text_content)
 {
-	FILE *fp;
-	int size = strlen(text_content);
-	ssize_t w_val;
+	int fildes, w_val, size = strlen(text_content);
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
 
-	fp = fopen(filename, "w+");
-	if (fp)
+	fildes = creat(filename, 0600);
+	if (fildes < 0)
+		return (-1);
 
-		if (fp == NULL)
-			return (-1);
-
-	w_val = fwrite(text_content, sizeof(char), size, fp);
-	if (w_val != size)
+	if (text_content)
 	{
-		fclose(fp);
-		return (-1);
+		w_val = write(fildes, text_content, size);
+		if (w_val != size)
+			return (-1);
 	}
 
-	fclose(fp);
+	close(fildes);
 
-	chmod(filename, S_IRUSR | S_IWUSR);
 	return (1);
 }

@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "main.h"
-#include <limits.h>
 
 /**
  * get_bit - gets a bit  at an index
@@ -11,21 +9,11 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i = 0;
-	int bit_val;
+	unsigned long int value = 1 << index;
+	int bit_val = value & n != 0 ? 1 : 0;
 
-	while (i <= index)
-	{
-		if (!n)
-			return (-1);
-		if (i == index)
-		{
-			bit_val = n % 2;
-			break;
-		}
-		n /= 2;
-		i++;
-	}
+	if (index > 32)
+		return (-1);
 
 	return (bit_val);
 }

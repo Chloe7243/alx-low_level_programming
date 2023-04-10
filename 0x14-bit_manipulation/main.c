@@ -7,7 +7,7 @@
  * Return: Always 0.
  */
 int main(void)
-{
+{/*
 	int n;
 
 	n = get_bit(1024, 10);
@@ -17,8 +17,7 @@ int main(void)
 	n = get_bit(1024, 0);
 	printf("%d\n", n);
 	return (0);
-
-	/*
+*/
 	print_binary(0);
 	printf("\n");
 	print_binary(1);
@@ -29,7 +28,7 @@ int main(void)
 	printf("\n");
 	print_binary((1 << 10) + 1);
 	printf("\n");
-	
+/*	
 	   n = binary_to_uint("1");
 	   printf("%u\n", n);
 	   n = binary_to_uint("");

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "main.h"
-#include <limits.h>
 
 /**
  * print_binary - convert decimal to binary
@@ -10,23 +9,20 @@
 
 void print_binary(unsigned long int n)
 {
-	int i,  is_zero = 1;
+	int size = sizeof(unsigned long int) * 8;
+	unsigned long int value = ((unsigned long int)1) << (size - 1);
 
-	for (i = 0; i < 64; i++)
+	if (!n)
+		putchar('0');
+	while (value)
 	{
-		if ((n & ((unsigned long int)1 << i)) != 0)
+		if (value <= n)
 		{
-			is_zero = 0;
-			_putchar('1');
+			if ((n & value) != 0)
+				putchar('1');
+			else
+				putchar('0');
 		}
-		else
-		{
-			if (is_zero == 0)
-				_putchar('0');
-		}
+		value >>= 1;
 	}
-
-	if (is_zero)
-		_putchar('0');
-
 }

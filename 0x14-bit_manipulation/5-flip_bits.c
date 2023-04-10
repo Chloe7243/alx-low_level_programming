@@ -9,14 +9,15 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int b = n ^ m, value = (unsigned long int)'1', index = 0, count = 0;
+	unsigned long int b = n ^ m, value = ((unsigned long int)'1');
+	long int index = 0, count = 1;
 
 	while ((value << index) <= b)
 	{
 		if ((b & (value << index)) != 0)
 			count++;
 		index++;
-
 	}
+
 	return (count);
 }

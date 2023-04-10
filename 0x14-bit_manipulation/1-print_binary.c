@@ -10,7 +10,7 @@
 void print_binary(unsigned long int n)
 {
 	int size = sizeof(unsigned long int) * 8;
-	unsigned long int value = ((unsigned long int)1) << (size - 1);
+	unsigned long int value = ((unsigned long int)'1') << (size - 1);
 
 	if (!n)
 		putchar('0');

@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "main.h"
-#include <limits.h>
 
 /**
  * flip_bits - no of bits you would need to flip change a number to another.

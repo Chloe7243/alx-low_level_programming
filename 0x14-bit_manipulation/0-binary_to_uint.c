@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * binary_to_uint - convert binary to int
@@ -10,10 +9,13 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0, mul = 1, val;
-	long int i = strlen(b) - 1;
+	long int i = 0;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
+
+	while (*b)
+		i++;
 
 	for (; i >= 0; i--)
 	{

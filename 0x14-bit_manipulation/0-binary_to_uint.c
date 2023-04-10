@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * binary_to_uint - convert binary to int
@@ -8,25 +9,22 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum = 0, mul = 1, val;
-	long int i = 0;
+	unsigned int sum = 0, i = 0, j = 0, val;
 
-	if (!b)
-		return (0);
-
-	while (*b)
+	while (b[i])
 		i++;
+	i--;
 
-	for (; i >= 0; i--)
+	while (b[j])
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (b[j] != '0' && b[j] != '1')
 			return (0);
 
-		val = b[i] == '0' ? 0 : 1;
-		sum += mul * val;
-		mul *= 2;
+		val = b[j] == '0' ? 0 : 1;
+		sum += val << i;
+		i--;
+		j++;
 	}
-
 
 	return (sum);
 }

@@ -29,7 +29,11 @@ int main(int ac, char **av)
 	{
 		w_val = write(fd2, buf, r_val);
 		if (fd2 < 0 || w_val != r_val)
+		{
+			close(fd);
+			close(fd2);
 			handle_error("Can't write to %s\n", 99, f_to);
+		}
 	}
 
 	if (r_val < 0)

@@ -35,7 +35,7 @@ int main(int ac, char **av)
 		}
 	}
 
-	if (fd < 0 || r_val != 0)
+	if (fd < 0 || r_val < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);

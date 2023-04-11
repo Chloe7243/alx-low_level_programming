@@ -12,7 +12,8 @@ int main(int ac, char **av)
 {
 	const char *f_from, *f_to;
 	char buf[1024];
-	int fd, fd2, fc, fc2, w_val, r_val;
+	int fd, fd2, fc, fc2;
+	ssize_t w_val, r_val;
 
 	if (ac != 3)
 		handle_error("Usage: cp file_from file_to\n", 97, "");
@@ -29,11 +30,7 @@ int main(int ac, char **av)
 	{
 		w_val = write(fd2, buf, r_val);
 		if (fd2 < 0 || w_val != r_val)
-		{
-			close(fd);
-			close(fd2);
 			handle_error("Can't write to %s\n", 99, f_to);
-		}
 	}
 
 	if (r_val < 0)

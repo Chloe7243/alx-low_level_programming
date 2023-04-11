@@ -32,7 +32,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (r_val < 0)
 		return (help_fnc(buf, fp));
 
-	w_val = fwrite(buf, sizeof(char), r_val, stdout);
+	w_val = fwrite(buf, sizeof(char), r_val, STDOUT_FILENO);
 	if (w_val != r_val)
 		return (help_fnc(buf, fp));
 	fclose(fp);

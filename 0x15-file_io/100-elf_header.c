@@ -2,7 +2,8 @@
 
 int main(int ac, char **av)
 {
-	char *file, str[50];
+	char *file, str[11];
+	int fd;
 
 	if (ac != 2)
 	{
@@ -11,9 +12,9 @@ int main(int ac, char **av)
 	}
 
 	file = av[1];
-	fd = open(file, 0_RDONLY);
+	fd = open(file, O_RDONLY);
 	read(fd, str, 10);
-	printf("%s", str);
+	printf("%s\n", str);
 	close(fd);
 
 	return(0);

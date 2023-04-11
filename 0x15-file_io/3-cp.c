@@ -26,9 +26,6 @@ int main(int ac, char **av)
 	if (fd < 0)
 		handle_error("Error: Can't read from file %s\n", 98, f_from);
 
-	if (fd2 < 0)
-		handle_error("Can't write to %s\n", 99, f_to);
-
 	while ((r_val = read(fd, buf, 1024)) > 0)
 	{
 		w_val = write(fd2, buf, r_val);
@@ -36,7 +33,7 @@ int main(int ac, char **av)
 			handle_error("Can't write to %s\n", 99, f_to);
 	}
 
-	if (r_val < 0)
+	if (fd2 < 0 || r_val < 0)
 		handle_error("Error: Can't read from file %s\n", 98, f_from);
 
 	fc = close(fd);

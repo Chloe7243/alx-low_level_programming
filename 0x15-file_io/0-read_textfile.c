@@ -10,32 +10,32 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
+	int fildes;
 	char *buf;
 	ssize_t r_val, w_val;
 
 	if (filename == NULL)
 		return (0);
 
-	fp = fopen(filename, "r");
-	if (fp == NULL)
+	fildes = open(filename, O_RDONLY);
+	if (fildes < 0)
 		return (0);
 
 	buf = malloc(letters + 1);
 	if (buf == NULL)
 	{
-		fclose(fp);
+		close(fildes);
 		return (0);
 	}
 
-	r_val = fread(buf, sizeof(char), letters, fp);
+	r_val = read(fildes, buf, letters);
 	if (r_val < 0)
-		return (help_fnc(buf, fp));
+		return (help_fnc(buf, fildes));
 
-	w_val = fwrite(buf, sizeof(char), r_val, STDOUT_FILENO);
+	w_val = write(STDOUT_FILENO, buf, r_val);
 	if (w_val != r_val)
-		return (help_fnc(buf, fp));
-	fclose(fp);
+		return (help_fnc(buf, fildes));
+	close(fildes);
 	free(buf);
 
 	return (w_val);
@@ -50,9 +50,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
  * Return: int
  */
 
-int help_fnc(char *buffer, FILE *file_ptr)
+int help_fnc(char *buffer, int fildes)
 {
-	fclose(file_ptr);
+	close(fildes);
 	free(buffer);
 	return (0);
 }

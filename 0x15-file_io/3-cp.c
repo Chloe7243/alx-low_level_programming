@@ -13,7 +13,7 @@ int main(int ac, char __attribute__((unused)) **av)
 
 	if (ac != 3)
 	{
-		printf("Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -24,7 +24,7 @@ int main(int ac, char __attribute__((unused)) **av)
 
 	if (fd < 0)
 	{
-		printf("Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
 	}
 
@@ -33,13 +33,13 @@ int main(int ac, char __attribute__((unused)) **av)
 		w_val = write(fd2, buf, r_val);
 		if (fd2 < 0 || w_val != r_val)
 		{
-			printf("Can't write to %s\n", f_to);
+			dprintf(STDERR_FILENO, "Can't write to %s\n", f_to);
 			exit(99);
 		}
 	}
 	if (fd < 0)
 	{
-		printf("Error: Can't read from file %s\n", f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
 
 	}
@@ -49,7 +49,7 @@ int main(int ac, char __attribute__((unused)) **av)
 
 	if (fc != 0 || fc2 != 0)
 	{
-		printf("Error: Can't close fd %d\n", (fc != 0 ? fc : fc2));
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (fc != 0 ? fc : fc2));
 		exit(98);
 	}
 

@@ -29,11 +29,11 @@ int main(int ac, char **av)
 	while ((r_val = read(fd, buf, 1024)) > 0)
 	{
 		w_val = write(fd2, buf, r_val);
-		if (w_val != r_val)
+		if (fd2 < 0 || w_val != r_val)
 			handle_error("Can't write to %s\n", 99, f_to);
 	}
 
-	if (fd2 < 0 || r_val < 0)
+	if (r_val < 0)
 		handle_error("Error: Can't read from file %s\n", 98, f_from);
 
 	fc = close(fd);

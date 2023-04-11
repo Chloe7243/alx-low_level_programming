@@ -28,10 +28,10 @@ int main(int ac, char **av)
 
 	while ((r_val = read(fd, buf, 1024)) > 0)
 	{
-		if (fd2 < 0 || w_val != r_val)
+		if (fd2 < 0)
 			handle_error("Can't write to %s\n", 99, f_to);
 		w_val = write(fd2, buf, r_val);
-		if (fd2 < 0 || w_val != r_val)
+		if (w_val != r_val)
 			handle_error("Can't write to %s\n", 99, f_to);
 	}
 

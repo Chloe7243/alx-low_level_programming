@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	f_from = av[1];
 	f_to = av[2];
 	fd = open(f_from, O_RDONLY);
-	fd2 = creat(f_to, 0664);
+	fd2 = open(f_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);;
 
 	if (fd < 0)
 		handle_error("Error: Can't read from file %s\n", 98, f_from);

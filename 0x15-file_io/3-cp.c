@@ -3,9 +3,12 @@
 /**
  * main - check the code
  *
+ * @ac: ...
+ * @av: ...
  * Return: Always 0.
  */
-int main(int ac, char __attribute__((unused)) **av)
+
+int main(int ac, char **av)
 {
 	const char *f_from, *f_to;
 	char buf[1024];
@@ -22,12 +25,6 @@ int main(int ac, char __attribute__((unused)) **av)
 	fd = open(f_from, O_RDONLY);
 	fd2 = creat(f_to, 0664);
 
-	if (fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
-		exit(98);
-	}
-
 	while ((r_val = read(fd, buf, 1024)) > 0)
 	{
 		w_val = write(fd2, buf, r_val);
@@ -37,7 +34,8 @@ int main(int ac, char __attribute__((unused)) **av)
 			exit(99);
 		}
 	}
-	if (fd < 0)
+
+	if (fd < 0 || r_val != 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
@@ -50,7 +48,7 @@ int main(int ac, char __attribute__((unused)) **av)
 	if (fc != 0 || fc2 != 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (fc != 0 ? fc : fc2));
-		exit(98);
+		exit(100);
 	}
 
 	return (0);

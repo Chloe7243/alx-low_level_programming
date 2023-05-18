@@ -2,8 +2,9 @@
 
 /**
  * insert_dnodeint_at_index - inserts node at index
- * @head: head pointer
+ * @h: head pointer
  * @idx: index whre node should be inserted
+ * @n: new node integer
  * Return: node at index
  */
 

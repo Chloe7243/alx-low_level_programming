@@ -22,13 +22,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	strcpy(item->key, strdup(key));
 	strcpy(item->value, strdup(value));
+	item->next = NULL;
 
 	index = key_index((unsigned char *)key, ht->size);
 	table_index = ht->array[index];
 
 	if (table_index == NULL)
-	{
 		ht->array[index] = item;
+	else
+	{
+		while (table_index->next)
+			table_index = table_index->next;
+		table_index->next = item;
 	}
 
 	return (1);

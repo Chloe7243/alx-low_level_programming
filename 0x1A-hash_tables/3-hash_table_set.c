@@ -12,14 +12,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int index;
 	hash_node_t *item, *temp;
-	index = key_index((unsigned char *)key, ht->size);
 
+	index = key_index((unsigned char *)key, ht->size);
 	if (ht->array[index])
 	{
 		temp = ht->array[index];
 		while (temp)
 		{
-			if(strcmp(temp->key, key) == 0)
+			if (strcmp(temp->key, key) == 0)
 			{
 				strcpy(temp->value, value);
 				return (1);

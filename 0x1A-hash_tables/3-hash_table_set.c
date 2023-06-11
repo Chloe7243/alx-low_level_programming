@@ -22,11 +22,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	strcpy(item->key, key);
 	strcpy(item->value, value);
-
 	index = key_index((unsigned char *)key, ht->size);
 
+	if (ht->array[index] && ht->array[index].key == key)
+		ht->array[index].value = value;
+	else
+	{
 	item->next = ht->array[index];
 	ht->array[index] = item;
+	}
 
 	return (1);
 }

@@ -30,7 +30,6 @@ int binary_search(int *array, size_t size, int value)
 		mid = ((high - low) / 2) + low;
 		if (array[mid] == value)
 		{
-			printf("Searching in array: %d\n", mid);
 			return (mid);
 		}
 		else if (array[mid] < value)

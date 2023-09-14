@@ -16,6 +16,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t i, block = sqrt(size);
 	listint_t *ptr = list, *ptr2, *prev;
 
+	if (list == NULL || size == 0)
+		return NULL;
 
 	do {
 		prev = ptr;

@@ -17,7 +17,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	listint_t *ptr = list, *ptr2, *prev;
 
 	if (list == NULL || size == 0)
-		return NULL;
+		return (NULL);
 
 	do {
 		prev = ptr;

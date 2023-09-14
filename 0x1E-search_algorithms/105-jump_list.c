@@ -24,14 +24,14 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			ptr = ptr->next;
 		}
 
-		printf("Value checked array[%ld] = [%d]\n", ptr->index, ptr->n);
+		printf("Value checked at index [%ld] = [%d]\n", ptr->index, ptr->n);
 		if (ptr->n >= value)
 		{
 			printf("Value found between indexes [%ld] and [%ld]\n",
 					prev->index, ptr->index);
 			for (ptr2 = prev; ptr2->index <= ptr->index; ptr2 = ptr2->next)
 			{
-				printf("Value checked array[%ld] = [%d]\n", ptr2->index, ptr2->n);
+				printf("Value checked at index [%ld] = [%d]\n", ptr2->index, ptr2->n);
 				if (ptr2->n == value)
 					return (ptr2);
 			}
